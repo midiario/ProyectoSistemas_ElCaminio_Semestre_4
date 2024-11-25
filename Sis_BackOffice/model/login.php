@@ -19,7 +19,7 @@ private $pdo;
 		}
 	}
 
-  public function Login($CorreoElectronico, $Contrasena)
+  public function Login($usuario, $Contrasena)
   {
       try {
           $stm = $this->pdo->prepare("SELECT * FROM empleados WHERE usuario = ? AND password = ?");
@@ -41,12 +41,12 @@ private $pdo;
       }
   }
   
-  public function ObtenerSecion($CorreoElectronico)
+  public function ObtenerSecion($usuario)
 	{
 		try
 		{
 			$stm = $this->pdo->prepare("SELECT usuario FROM  empleados WHERE usuario = ?");
-			$stm->execute(array($CorreoElectronico));
+			$stm->execute(array($usuario));
 		
       $resultado = $stm->fetch(PDO::FETCH_OBJ);
       if ($resultado) {

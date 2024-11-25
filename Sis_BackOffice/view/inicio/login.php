@@ -146,9 +146,9 @@
     </br>
     <form id="frm-login" action="?c=login&a=Login" method="post" enctype="multipart/form-data">
       <?php echo isset($alert) ? $alert : ""; ?>
-      <div class="form-field d-flex align-items-center">
+      <div class="form-field d-flex align-items-center">s
         <span class="far fa-user"></span>
-        <input type="text" class="form-control" placeholder="usuario" name="usuario" value="<?php echo $login->CorreoElectronico; ?>">
+        <input type="text" class="form-control" placeholder="usuario" name="usuario" value="<?php echo $login->usuario; ?>">
       </div>
       <div class="form-field d-flex align-items-center">
         <span class="fas fa-key"></span>
