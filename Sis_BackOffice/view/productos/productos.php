@@ -67,8 +67,8 @@ input:checked + .slider:before {
 <div id="snackbar"></div>
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-6">
-		<h1 class="h3 mb-0 text-gray-800">Alternativa</h1>
-		<a href="?c=alternativa&a=Nuevo" class="btn btn-primary">Nuevo</a>
+		<h1 class="h3 mb-0 text-gray-800">Productos</h1>
+		<a href="?c=productos&a=Nuevo" class="btn btn-primary">Nuevo</a>
 	</div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
@@ -113,13 +113,13 @@ input:checked + .slider:before {
      
             <td><?php echo date('d-m-Y', strtotime($r->FECHA)); ?></td>
              <td>
-                <a href="?c=alternativa&a=Crud&Recomendacion_id=<?php echo $r->ID; ?>"class="btn btn-success"><i class='fas fa-edit'></i></a>
+                <a href="?c=productos&a=Crud&Recomendacion_id=<?php echo $r->ID; ?>"class="btn btn-success"><i class='fas fa-edit'></i></a>
                  <label class="switch">
                           <input type="checkbox" class="estado-checkbox" data-titulo="<?php echo $r->TITULO; ?>" data-id="<?php echo $r->ID; ?>" <?php echo ($estado == 1) ? 'checked' : ''; ?>>
 
                     <span class="slider round"></span>
                 </label>
-                <a href="?c=alternativa&a=Crud_Brain&Recomendacion_id=<?php echo $r->ID; ?>&titulo=<?php echo $r->TITULO;?>&cat_id=<?php echo $r->ID_CAT;?>&cat_nombre=<?php echo $r->categorias;?>"class="btn btn-primary"><i class='fas fa-brain'></i></a>
+                <a href="?c=productos&a=Crud_Brain&Recomendacion_id=<?php echo $r->ID; ?>&titulo=<?php echo $r->TITULO;?>&cat_id=<?php echo $r->ID_CAT;?>&cat_nombre=<?php echo $r->categorias;?>"class="btn btn-primary"><i class='fas fa-brain'></i></a>
            
                 </div>
             </td>
@@ -148,19 +148,19 @@ $(document).ready(function(){
         if($(this).is(":checked")) {
         
             $.ajax({
-            url: '?c=alternativa&a=Estado_Activar&Recomendacion_id=' + id,
+            url: '?c=productos&a=Estado_Activar&Recomendacion_id=' + id,
             method: 'GET', // Método GET o POST según corresponda
             dataType: 'json', // Tipo de datos esperado de la respuesta
             success: function(response) {
             if (response.success) {
-                // Redirige al usuario a la página principal de alternativa
+                // Redirige al usuario a la página principal de productos
                  Swal.fire(
                           '¡Actualizado!',
-                          'Se activo la Alternativa :' + ' '+titulo ,
+                          'Se activo la productos :' + ' '+titulo ,
                            'success'
                         );
                         setTimeout(function(){
-                            window.location.href = 'index.php?c=alternativa';
+                            window.location.href = 'index.php?c=productos';
                         }, 5000);
               
             } else {
@@ -176,21 +176,21 @@ $(document).ready(function(){
 
         } else {
               $.ajax({
-            url: '?c=alternativa&a=Estado_Desactivar&Recomendacion_id=' + id,
+            url: '?c=productos&a=Estado_Desactivar&Recomendacion_id=' + id,
             method: 'GET', // Método GET o POST según corresponda
             dataType: 'json', // Tipo de datos esperado de la respuesta
             success: function(response) {
         if (response.success) {
             Swal.fire(
                           '¡Actualizado!',
-                          'Se desactivo la Alternativa :' + ' '+titulo ,
+                          'Se desactivo la productos :' + ' '+titulo ,
                           'success'
                         );
 
                         setTimeout(function(){
-                            window.location.href = 'index.php?c=alternativa';
+                            window.location.href = 'index.php?c=productos';
                         }, 5000);
-            // Redirige al usuario a la página principal de alternativa
+            // Redirige al usuario a la página principal de productos
 
               
         } else {
