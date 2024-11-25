@@ -4,9 +4,9 @@
 	<!-- Sidebar - Brand -->
 	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
 	
-			<img src="assets/img/logo-negativo.png" width="75px">
+			<img src="assets/img/CAMINO.png" width="75px">
 
-		<div class="sidebar-brand-text mx-3">MENU SRNRAT</div>
+		<div class="sidebar-brand-text mx-3">MENU ADMIN</div>
 	</a>
 
 	<!-- Divider -->
@@ -24,7 +24,7 @@
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
 			<i class="fas fa-fw fa-cog"></i>
-			<span>Validación de Pago</span>
+			<span>PEDIDOS</span>
 		</a>
 		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
@@ -37,7 +37,7 @@
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
 			<i class="fas fa-fw fa-wrench"></i>
-			<span>Alternativas -Turisticas</span>
+			<span>PRODUCTOS</span>
 		</a>
 		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
@@ -51,7 +51,7 @@
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes" aria-expanded="true" aria-controls="collapseUtilities">
 			<i class="fas fa-users"></i>
-			<span>R.N.N.</span>
+			<span>CLIENTES</span>
 		</a>
 		<div id="collapseClientes" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
@@ -63,7 +63,7 @@
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategorias" aria-expanded="true" aria-controls="collapseUtilities">
 			<i class="fas fa-hospital"></i>
-			<span>Categorias - Entradas</span>
+			<span>PROVEDORES</span>
 		</a>
 		<div id="collapseCategorias" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
@@ -87,7 +87,7 @@
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientesx" aria-expanded="true" aria-controls="collapseUtilities">
 			<i class="fas fa-hospital"></i>
-			<span>Clientes</span>
+			<span>USUARIOS</span>
 		</a>
 		<div id="collapseClientesx" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
