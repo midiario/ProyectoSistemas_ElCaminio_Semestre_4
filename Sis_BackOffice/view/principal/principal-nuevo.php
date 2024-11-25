@@ -4,7 +4,7 @@
 
 
     <div class="container-fluid">
-    <h1 class="page-header text-center">Registro Nueva Alternativa Turística</h1>
+    <h1 class="page-header text-center">Registro Nueva Pedido</h1>
     <div class="row">
         <div class="col-lg-12 m-auto">
             <div class="card">
@@ -13,18 +13,10 @@
                 </div>
                 <div class="card-body">
                     <form id="frm-nuevo" action="?c=alternativa&a=Guardar" method="post" autocomplete="off" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="nombre">Nombre de la Alternativa</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-tag"></i></span>
-                                </div>
-                                <input type="text" placeholder="Ingrese nombre" name="titulo" id="titulo" class="form-control">
-                            </div>
-                        </div>
+                
 
                         <div class="form-group">
-                            <label for="categoria">Categoría de la Alternativa</label>
+                            <label for="categoria">Cliente</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-list"></i></span>
@@ -43,7 +35,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="precio">Precio</label>
+                            <label for="precio">Nit / Ci</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
@@ -52,106 +44,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="imagenes">Cargar Imágenes del Alternativa</label>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
-                                <i class="fas fa-upload"></i> Cargar Imágenes
-                            </button>
-                        </div>
-
-                        <div class="modal" id="myModal1">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Imágenes</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <label for="img1">Imagen 1:</label>
-                                        <input type="file" class="form-control mb-2" id="img1" name="img1" required>
-                                        <label for="img2">Imagen 2:</label>
-                                        <input type="file" class="form-control mb-2" id="img2" name="img2" required>
-                                        <label for="img3">Imagen 3:</label>
-                                        <input type="file" class="form-control mb-2" id="img3" name="img3" required>
-                                        <label for="img4">Imagen 4:</label>
-                                        <input type="file" class="form-control mb-2" id="img4" name="img4" required>
-                                        <label for="img5">Imagen 5:</label>
-                                        <input type="file" class="form-control mb-2" id="img5" name="img5" required>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-success" id="saveChangesButtonImg">Guardar Cambios</button>
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="mapa">Cargar Ubicación Mapa</label>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                <i class="fas fa-map-marker-alt"></i> Cargar Ubicación Mapa
-                            </button>
-                        </div>
-
-                        <div class="modal" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Coordenadas</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <label for="text1">Latitud:</label>
-                                        <input type="text" id="text1" class="form-control mb-2" required>
-                                        <label for="text2">Longitud:</label>
-                                        <input type="text" id="text2" class="form-control mb-2" required>
-                                        <label for="text3">Dirección:</label>
-                                        <input type="text" id="text3" class="form-control mb-2" required>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-success" id="saveChangesButton">Guardar Cambios</button>
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                                    </div>
-                                    <div id="map" style="height: 300px;"></div>
-                                  
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="ubicacion">Ubicación de la Alternativa</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
-                                </div>
-                                <input type="text" placeholder="Ingrese ubicación de la alternativa" name="ubicacion" id="ubicacion" class="form-control" required>
-                                <input type="hidden"  name="latlong" id="latlong" class="form-control"> 
-              
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="descripcion">Descripción</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-info-circle"></i></span>
-                                </div>
-                                <input type="text" placeholder="Ingrese descripción" name="descripcion" id="descripcion" class="form-control" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="estado">Estado</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-toggle-on"></i></span>
-                                </div>
-                                <select name="estado" id="estado" class="custom-select">
-                                    <option value="1">Activo</option>
-                                    <option value="0">Inactivo</option>
-                                </select>
-                            </div>
-                        </div>
+                       
 
                         <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar Alternativa</button>
                         <a href="?c=principal" class="btn btn-danger"><i class="fas fa-arrow-left"></i> Regresar</a>
