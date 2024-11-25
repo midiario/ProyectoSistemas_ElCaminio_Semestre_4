@@ -46,7 +46,7 @@
 
                        
 
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar Alternativa</button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar Pedido</button>
                         <a href="?c=principal" class="btn btn-danger"><i class="fas fa-arrow-left"></i> Regresar</a>
                     </form>
                 </div>
