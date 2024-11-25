@@ -20,7 +20,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Poppins', sans-serif;9
     }
 
     html, body {
@@ -138,7 +138,7 @@
   <div id="particles-js"></div>
   <div class="wrapper">
     <div class="logo">
-      <img src="assets/img/etreva_logo.jpg">
+      <img src="assets/img/CAMINO.jpg">
     </div>
     <div class="text-center mt-4 name">
        Imprenta el Camino Admin
