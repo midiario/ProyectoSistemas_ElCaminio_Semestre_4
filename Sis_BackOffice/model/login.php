@@ -45,7 +45,7 @@ private $pdo;
 	{
 		try
 		{
-			$stm = $this->pdo->prepare("SELECT empleados FROM empleados WHERE usuario = ?");
+			$stm = $this->pdo->prepare("SELECT usuario FROM  empleados WHERE usuario = ?");
 			$stm->execute(array($CorreoElectronico));
 		
       $resultado = $stm->fetch(PDO::FETCH_OBJ);

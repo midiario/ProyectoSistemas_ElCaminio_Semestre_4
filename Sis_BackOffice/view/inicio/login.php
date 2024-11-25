@@ -144,7 +144,7 @@
        Imprenta el Camino Admin
     </div>
     </br>
-    <form id="frm-login" action="?c=login&a=Login" method="post" enctype="multipart/form-data">
+    <form id="frm-login" action="?c=login&a=Login" method="post" enctype="multipart/form-data">F
       <?php echo isset($alert) ? $alert : ""; ?>
       <div class="form-field d-flex align-items-center">
         <span class="far fa-user"></span>
