@@ -28,15 +28,10 @@
 					<thead class="thead-dark">
 
                     <tr>
-                        <th >Código Nodo</th>
-                        <th >Nombre del Nodo</th>
-                        <th >Atractivo</th>
-                        <th >Compañia</th>
-                        <th >Horario</th>
-                        <th >Edad</th>
-                        <th >Costo</th>
-                        <th >Entradado</th>
-                        <th >Ramas Entrenadas</th>
+                        <th >ID PEDIDO</th>
+                        <th >ID CLIENTE</th>
+                        <th >NIT / CI</th>
+                        <th >ESTADO</th>
                         <th style="width: 15%;">Acciones</th>
               
                    
