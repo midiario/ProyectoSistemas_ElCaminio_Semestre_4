@@ -1,6 +1,6 @@
 <?php
 
-class alternativa
+class productos
 {
 
 	private $pdo;
@@ -153,7 +153,7 @@ class alternativa
 			die($e->getMessage());
 		}
 	}
-	public function Registrar_img(alternativa $data)
+	public function Registrar_img(productos $data)
 	{
 		try
 		{
@@ -187,7 +187,7 @@ class alternativa
 	}
 
 
-	public function Registrar_img1(alternativa $data)
+	public function Registrar_img1(productos $data)
 	{
 		try
 		{
@@ -208,7 +208,7 @@ class alternativa
 		}
 	}
 
-	public function Registrar_img2(alternativa $data)
+	public function Registrar_img2(productos $data)
 	{
 		try
 		{
@@ -229,7 +229,7 @@ class alternativa
 		}
 	}
 
-	public function Registrar_img3(alternativa $data)
+	public function Registrar_img3(productos $data)
 	{
 		try
 		{
@@ -249,7 +249,7 @@ class alternativa
 			die($e->getMessage());
 		}
 	}
-	public function Registrar_img4(alternativa $data)
+	public function Registrar_img4(productos $data)
 	{
 		try
 		{
@@ -269,7 +269,7 @@ class alternativa
 			die($e->getMessage());
 		}
 	}
-	public function Registrar_img5(alternativa $data)
+	public function Registrar_img5(productos $data)
 	{
 		try
 		{
@@ -290,7 +290,7 @@ class alternativa
 		}
 	}
 
-	public function Registrar(alternativa $data)
+	public function Registrar(productos $data)
 	{
 		try
 		{

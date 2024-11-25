@@ -41,8 +41,8 @@
 		</a>
 		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="?c=alternativa&a=Nuevo">Nuevo Producto</a>
-				<a class="collapse-item" href="index.php?c=alternativa">Listado de Productos</a>
+				<a class="collapse-item" href="?c=productos&a=Nuevo">Nuevo Producto</a>
+				<a class="collapse-item" href="index.php?c=productos">Listado de Productos</a>
 			</div>
 		</div>
 	</li>
