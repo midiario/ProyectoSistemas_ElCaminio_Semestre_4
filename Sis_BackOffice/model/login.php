@@ -23,7 +23,7 @@ private $pdo;
   {
       try {
           $stm = $this->pdo->prepare("SELECT * FROM empleados WHERE usuario = ? AND password = ?");
-          $stm->execute(array($CorreoElectronico, $Contrasena));
+          $stm->execute(array($usuario, $Contrasena));
           $usuario = $stm->fetch(PDO::FETCH_OBJ);
   
           if ($usuario) {
