@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>INICIO Design</title>
+  <title>El Camino</title>
 
   <!-- Importing fonts from Google -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -141,7 +141,7 @@
       <img src="assets/img/etreva_logo.jpg">
     </div>
     <div class="text-center mt-4 name">
-  RED NEURONAL RECURRENTE
+       Imprenta el Camino Admin
     </div>
     </br>
     <form id="frm-login" action="?c=login&a=Login" method="post" enctype="multipart/form-data">

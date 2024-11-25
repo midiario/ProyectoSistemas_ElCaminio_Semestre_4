@@ -14,7 +14,7 @@ class Database
      // $pdo = new PDO('mysql:host=193.203.175.91; dbname=u838621046_sis_neurona;charset=utf8', 'u838621046_admin', 'dellFX007');    //Filtrando posibles errores de conexión.
       
       
-      $pdo = new PDO('mysql:host=193.203.175.91; dbname=u838621046_neurona_2;charset=utf8', 'u838621046_neurona_2', 'dellFX007');    //Filtrando posibles errores de conexión.
+      $pdo = new PDO('mysql:host=193.203.175.91; dbname=u838621046_el_camino;charset=utf8', 'u838621046_el_camino', '123456789@abcDEF');    //Filtrando posibles errores de conexión.
         
       //  $pdo = new PDO('mysql:host=193.203.175.91; dbname=u838621046_sis_neurona;charset=utf8', 'u838621046_admin', 'dellFX007');    //Filtrando posibles errores de conexión.
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
