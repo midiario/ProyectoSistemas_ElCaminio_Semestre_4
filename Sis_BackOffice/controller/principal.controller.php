@@ -47,4 +47,12 @@ class PrincipalController{
         $this->model->Eliminar($_REQUEST['Neurona_Id']);
         header('Location: index.php');
     }
+
+    public function Nuevo(){
+        $pvd = new principal();
+
+        require_once 'view/pago/header.php';
+        require_once 'view/principal/principal-nuevo.php';
+        require_once 'view/footerx.php';
+    }
 }
