@@ -13,7 +13,7 @@ class CategoriasController{
      // Método privado para verificar la sesión
      private function verificarSesion(){
         // Verificar si el usuario está autenticado
-        if (!isset($_SESSION['session_email']) || empty($_SESSION['session_email'])) {
+        if (!isset($_SESSION['session_usuario']) || empty($_SESSION['session_usuario'])) {
             // Si no está autenticado, redirigir al inicio de sesión
             header("Location: index.php");
             exit();
@@ -29,6 +29,16 @@ class CategoriasController{
         header("Cache-Control: post-check=0, pre-check=0", false);
         header("Pragma: no-cache");
     }
+
+    public function Index(){
+
+        $this->verificarSesion(); // Verificar si el usuario está autenticado
+        $this->evitarCache();     // Evitar el almacenamiento en caché
+ 
+        require_once 'view/pago/header.php';
+        require_once 'view/categorias/categorias.php';
+        require_once 'view/footerx.php';
+     } 
 
     //Llamado plantilla alternativa
     public function Listar(){
