@@ -2,20 +2,22 @@
 session_start();
 
 
-require_once 'model/alternativa.php';
+require_once 'model/productos.php';
 
-class AlternativaController{
+class ProductosController{
 
     private $model;
 
     public function __CONSTRUCT(){
-        $this->model = new alternativa();
+        $this->model = new productos();
     }
 
         // Método privado para verificar la sesión
     private function verificarSesion(){
+
+       // $login = $this->model->Login($_REQUEST['usuario'],$_REQUEST['Contrasena']);
             // Verificar si el usuario está autenticado
-       if (!isset($_SESSION['session_email']) || empty($_SESSION['session_email'])) {
+       if (!isset($_SESSION['session_usuario']) || empty($_SESSION['session_usuario'])) {
              // Si no está autenticado, redirigir al inicio de sesión
             header("Location: index.php");
             exit();
@@ -32,36 +34,36 @@ class AlternativaController{
         header("Pragma: no-cache");
     }
 
-    //Llamado plantilla alternativa
+    //Llamado plantilla productos
     public function Index(){
-        $pvd = new alternativa();
+        $pvd = new productos();
        $this->verificarSesion(); // Verificar si el usuario está autenticado
        $this->evitarCache();     // Evitar el almacenamiento en caché
 
        require_once 'view/pago/header.php';
-       require_once 'view/alternativa/alternativa.php';
+       require_once 'view/productos/productos.php';
        require_once 'view/footerx.php';
     } 
     public function NuevoEntrenamiento(){
-        $pvd = new alternativa();
+        $pvd = new productos();
 
         require_once 'view/pago/header.php';
-        require_once 'view/alternativa/alternativa-entrenamiento.php';
+        require_once 'view/productos/productos-entrenamiento.php';
         require_once 'view/footerx.php';
     }
 
     public function Entrenar(){
-        $pvd = new alternativa();
+        $pvd = new productos();
 
         require_once 'view/pago/header.php';
-        require_once 'view/alternativa/entrenar.php';
+        require_once 'view/productos/entrenar.php';
         require_once 'view/footerx.php';
     }
 
 
     
     public function Crud(){
-        $pvd = new alternativa();
+        $pvd = new productos();
 
         // Comprobar si `Recomendacion_id` está en la solicitud
     if (isset($_REQUEST['Recomendacion_id'])) {
@@ -75,46 +77,46 @@ class AlternativaController{
         $pvd = (object) array_merge((array) $datosGenerales, (array) $datosImagenes);
     }
         require_once 'view/pago/header.php';      
-        require_once 'view/alternativa/editar.php';
+        require_once 'view/productos/editar.php';
         require_once 'view/footerx.php';
     }
     public function Crud_Brain(){
-        $pvd = new alternativa();
+        $pvd = new productos();
 
         if(isset($_REQUEST['Recomendacion_id'])){
             $pvd = $this->model->ObtenerX($_REQUEST['Recomendacion_id']);
         }
         require_once 'view/pago/header.php';     
-        require_once 'view/alternativa/alternativa_brain.php';
+        require_once 'view/productos/productos_brain.php';
         require_once 'view/footerx.php';
     }
 
     public function Crud_Aux(){
-        $pvd = new alternativa();
+        $pvd = new productos();
 
         if(isset($_REQUEST['Neurona_Id'])){
             $pvd = $this->model->Obtener($_REQUEST['Neurona_Id']);
         }
         require_once 'view/pago/header.php';   
-        require_once 'view/alternativa/alternativa-editar-entrenamiento.php';
+        require_once 'view/productos/productos-editar-entrenamiento.php';
         require_once 'view/footerx.php';
     }
 
     public function NuevoIN(){
-        $pvd = new alternativa();
+        $pvd = new productos();
         $alert = '<div class="alert alert-primary" role="alert">
                          Registrado
                     </div>';
                     require_once 'view/pago/header.php';
-        require_once 'view/alternativa/nuevo.php';
+        require_once 'view/productos/nuevo.php';
         require_once 'view/footerx.php';
     }
 
     public function Nuevo(){
-        $pvd = new alternativa();
+        $pvd = new productos();
       
         require_once 'view/pago/header.php';
-        require_once 'view/alternativa/nuevo.php';
+        require_once 'view/productos/nuevo.php';
         require_once 'view/footerx.php';
     }
 
@@ -126,7 +128,7 @@ class AlternativaController{
     
         $response = ["status" => "error", "message" => "Error desconocido."];
         try {
-            $pvd_img = new alternativa();
+            $pvd_img = new productos();
     
             $archivo1 = $_FILES['imgX'];
             $pvd_img->valor_id = $_REQUEST['id_recomendacion'];
@@ -173,7 +175,7 @@ class AlternativaController{
     
         $response = ["status" => "error", "message" => "Error desconocido."];
         try {
-            $pvd_img = new alternativa();
+            $pvd_img = new productos();
     
             $archivo1 = $_FILES['imgX'];
             $pvd_img->valor_id = $_REQUEST['id_recomendacion'];
@@ -221,7 +223,7 @@ class AlternativaController{
     
         $response = ["status" => "error", "message" => "Error desconocido."];
         try {
-            $pvd_img = new alternativa();
+            $pvd_img = new productos();
     
             $archivo1 = $_FILES['imgX'];
             $pvd_img->valor_id = $_REQUEST['id_recomendacion'];
@@ -267,7 +269,7 @@ class AlternativaController{
     
         $response = ["status" => "error", "message" => "Error desconocido."];
         try {
-            $pvd_img = new alternativa();
+            $pvd_img = new productos();
     
             $archivo1 = $_FILES['imgX'];
             $pvd_img->valor_id = $_REQUEST['id_recomendacion'];
@@ -313,7 +315,7 @@ class AlternativaController{
     
         $response = ["status" => "error", "message" => "Error desconocido."];
         try {
-            $pvd_img = new alternativa();
+            $pvd_img = new productos();
     
             $archivo1 = $_FILES['imgX'];
             $pvd_img->valor_id = $_REQUEST['id_recomendacion'];
@@ -357,8 +359,8 @@ class AlternativaController{
     public function Guardar(){
         $response = ["status" => "error", "message" => "Error desconocido."];
         try {
-        $pvd = new alternativa();
-        $pvd_img = new alternativa();
+        $pvd = new productos();
+        $pvd_img = new productos();
    
 
         //Captura de los datos del formulario (vista).
@@ -499,7 +501,7 @@ class AlternativaController{
 
     echo json_encode($response);
 
-      //  header('Location: index.php?c=alternativa&a=NuevoIN');
+      //  header('Location: index.php?c=productos&a=NuevoIN');
         //header() es usado para enviar encabezados HTTP sin formato.
         //"Location:" No solamente envía el encabezado al navegador, sino que
         //también devuelve el código de status (302) REDIRECT al
@@ -507,7 +509,7 @@ class AlternativaController{
        
     }
     public function Editar(){
-        $pvd = new alternativa();
+        $pvd = new productos();
         $pvd->valor_id = $_REQUEST['id_recomendacion'];
         $pvd->valor_1 = $_REQUEST['nombre'];
         $pvd->valor_2 = $_REQUEST['ubicacion'];
@@ -520,7 +522,7 @@ class AlternativaController{
 
         $this->model->Actualizar($pvd);
 
-        header('Location: index.php?c=alternativa');
+        header('Location: index.php?c=productos');
     }
 
 
