@@ -45,7 +45,7 @@ class LoginController{
         // Realizar el procedimiento deseado aquí, por ejemplo:
         // Guardar el usuario en una variable de sesió
         // Redirigir a la página de productos o al procedimiento deseado
-        header('Location: index.php?c=principal');
+        header('Location: index.php?c=xxx');
     } else {
         require_once 'view/inicio/login.php';
  
