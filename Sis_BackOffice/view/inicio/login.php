@@ -148,7 +148,7 @@
       <?php echo isset($alert) ? $alert : ""; ?>
       <div class="form-field d-flex align-items-center">
         <span class="far fa-user"></span>
-        <input type="text" class="form-control" placeholder="CorreoElectronico" name="CorreoElectronico" value="<?php echo $login->CorreoElectronico; ?>">
+        <input type="text" class="form-control" placeholder="usuario" name="usuario" value="<?php echo $login->CorreoElectronico; ?>">
       </div>
       <div class="form-field d-flex align-items-center">
         <span class="fas fa-key"></span>

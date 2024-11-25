@@ -22,14 +22,14 @@ private $pdo;
   public function Login($CorreoElectronico, $Contrasena)
   {
       try {
-          $stm = $this->pdo->prepare("SELECT * FROM usuario WHERE User_Email = ? AND User_Pass = ?");
+          $stm = $this->pdo->prepare("SELECT * FROM empleados WHERE usuario = ? AND password = ?");
           $stm->execute(array($CorreoElectronico, $Contrasena));
           $usuario = $stm->fetch(PDO::FETCH_OBJ);
   
           if ($usuario) {
               $_SESSION["logged_in"] = true;
-              $_SESSION["session_type"] = $usuario->Usuario_Tipo;
-              $_SESSION["session_email"] = $usuario->User_Email;
+              $_SESSION["session_usuario"] = $usuario->usuario;
+              $_SESSION["session_id"] = $usuario->id_empleados;
               return $usuario;
           } else {
               $_SESSION["logged_in"] = false;
@@ -45,13 +45,13 @@ private $pdo;
 	{
 		try
 		{
-			$stm = $this->pdo->prepare("SELECT Usuario_Tipo FROM usuario WHERE User_Email = ?");
+			$stm = $this->pdo->prepare("SELECT empleados FROM empleados WHERE usuario = ?");
 			$stm->execute(array($CorreoElectronico));
 		
       $resultado = $stm->fetch(PDO::FETCH_OBJ);
       if ($resultado) {
       $_SESSION["logged_in"] = true;
-      $_SESSION["user_type"] = $usuario->Usuario_Tipo;
+      $_SESSION["session_usuario"] = $usuario->usuario;
     
     }
       return $stm->fetch(PDO::FETCH_OBJ);

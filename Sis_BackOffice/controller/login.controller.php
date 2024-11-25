@@ -36,9 +36,9 @@ class LoginController{
     $login = new login();
 
 
-    if(isset($_REQUEST['CorreoElectronico'])){
+    if(isset($_REQUEST['usuario'])){
     // Llamar a la función "Login()" del modelo "login" con los datos proporcionados
-    $login = $this->model->Login($_REQUEST['CorreoElectronico'],$_REQUEST['Contrasena']);
+    $login = $this->model->Login($_REQUEST['usuario'],$_REQUEST['Contrasena']);
     
     if ($_SESSION["logged_in"]) {
         // Si la sesión está en "true", se ha iniciado sesión correctamente
