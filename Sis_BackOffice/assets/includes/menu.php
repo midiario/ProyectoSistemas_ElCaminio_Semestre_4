@@ -4,7 +4,7 @@
 	<!-- Sidebar - Brand -->
 	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
 	
-			<img src="assets/img/CAMINO.png" width="75px">
+			<img src="assets/img/CAMINO.jpg" width="75px">
 
 		<div class="sidebar-brand-text mx-3">MENU ADMIN</div>
 	</a>
