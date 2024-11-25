@@ -1,288 +1,403 @@
-<h1 class="page-header">
-    Nuevo Registro..
-</h1>
 
-<?php
-// Obtener el ID y el título de la recomendación de la URL
-if(isset($_GET['Cate_id']) ) {
-    $cat = $_GET['Cate_id'];
-    $catNombre = $_GET['catNombre'];
-    $tituloRef = $_GET['tituloRef'];
-    // Mostrar la información en un div
-} else {
-    // Manejar el caso en que los parámetros no estén presentes en la URL
-
-}
-?>
-
-<script>
-        $(document).ready(function () {
-
-            viewProcesar();
-            function viewProcesar() {
-              $('#lb_entrada_1').show();
-              $('#lb_entrada_2').show();
-              $('#lb_entrada_3').show();
-              $('#lb_entrada_4').show();
-              $('#lb_entrada_5').show();
-              $('#lb_entrada_6').show();
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
 
 
-        
-            }  $("#entrada_6").change(function() {
-                    // Obtén el valor seleccionado en el select
-                    var valorSeleccionado = $(this).val();
-                    var valor1 = $("#entrada_1").val();
-                    var valor2 = $("#entrada_2").val();
-                    var valor3 = $("#entrada_3").val();
-                    var valor4 = $("#entrada_4").val();
-                    var valor5 = $("#entrada_5").val();
-                    var valor6 = $("#entrada_6").val();
-
-                });
-
-               
-                            $("#entrada_X").change(function () {
-                            // Obtener el valor seleccionado en entrada_5
-                            var valorSeleccionado = $(this).val();
-
-                            // Realizar una solicitud AJAX para obtener los datos
-                            $.ajax({
-                                url: '?c=principal&a=NuevoPreparadoNombre&X=' + valorSeleccionado,
-                                method: 'POST',
-                                dataType: 'json',
-                                success: function (data) {
-                                    // Limpia el select actual
-                                    $('#Id_Recomendacion').empty();
-
-                                    // Agrega una opción predeterminada
-                                    $('#Id_Recomendacion').append('<option value="0">Seleccionar</option>');
-                               
-                                    console.log('Respuesta del servidor:', data);
-                                    // Llena el select con los datos obtenidos
-                                    $.each(data, function (key, value) {
-                                        $('#Id_Recomendacion').append('<option value="' + value.Recomendacion_id + '">' + value.Recomendacion_titulo + '</option>');
-                                    });
-                                },
-                                error: function (xhr, status, error) {
-                                console.log('Error al obtener los datos:');
-                                console.log('XHR:', xhr);
-                                console.log('Status:', status);
-                                console.log('Error:', error);
-                                    }
-                            });
-                        });
-
-                  
-
-                    // El valor seleccionado es 2 o 3, realiza la acción deseada aquí
-                    $("#entrada_5").change(function() {
-                    // Obtén el valor seleccionado en el select
-                    var valorSeleccionado = $(this).val();
-                    var valor1 = $("#entrada_1").val();
-                    var valor2 = $("#entrada_2").val();
-                    var valor3 = $("#entrada_3").val();
-                    var valor4 = $("#entrada_4").val();
-                    var valor5 = $("#entrada_5").val();
-        
-                    var aux = "" ;  
-                    if (valor2==1){
-                            valor2= "M";
-
-                    }if(valor2==2){
-                        valor2= "F";
-
-                    }
-                    var miSelect = $("#Id_Recomendacion");
-                    // Obtener la opción seleccionada
-                    var opcionSeleccionada = miSelect.find("option:selected");
-                    // Obtener el valor del texto de la opción seleccionada
-                    var textoSeleccionado = opcionSeleccionada.text().trim();
-
-                    var miSelect1 = $("#entrada_3");
-                    // Obtener la opción seleccionada
-                    var opcionSeleccionada1 = miSelect1.find("option:selected");
-                    // Obtener el valor del texto de la opción seleccionada
-                    var textoSeleccionado1 = opcionSeleccionada1.text().trim();
-
-
-                    var miSelect2 = $("#entrada_4");
-                    // Obtener la opción seleccionada
-                    var opcionSeleccionada2 = miSelect2.find("option:selected");
-                    // Obtener el valor del texto de la opción seleccionada
-                    var textoSeleccionado2 = opcionSeleccionada2.text().trim();
-
-
-                    var miSelect3 = $("#entrada_X");
-                    // Obtener la opción seleccionada
-                    var opcionSeleccionada3 = miSelect3.find("option:selected");
-                    // Obtener el valor del texto de la opción seleccionada
-                    var textoSeleccionado3 = opcionSeleccionada3.text().trim();
-
-
-                    var miSelect4 = $("#entrada_5");
-                    // Obtener la opción seleccionada
-                    var opcionSeleccionada4 = miSelect4.find("option:selected");
-                    // Obtener el valor del texto de la opción seleccionada
-                    var textoSeleccionado4 = opcionSeleccionada4.text().trim();
-
-              aux = "/CAT:" +textoSeleccionado3 + "/ALT:"+textoSeleccionado +"/PER:" + valor1+  "/S:" + valor2 + "/H:"+ 
-              textoSeleccionado1+ "/E:"+textoSeleccionado2 +
-              "/P:"+textoSeleccionado4;  
-
-                    // Actualiza el valor del campo Id_Recomendacion con el valor seleccionado
-                   // $("input[name='NeuronaNombre']").val(valorSeleccionado);
-             
-                   $("input[name='NeuronaNombre']").val(aux);  
-             });
-         
-
-         
-        });
-    </script>
-
-
-
-
-<div class="container-fluid">
-    <!-- Content Row -->
+    <div class="container-fluid">
+    <h1 class="page-header text-center">Registro Nueva Alternativa Turística</h1>
     <div class="row">
-        <div class="col-lg-10 m-auto">
-            <div class="card-header bg-primary text-white">
-            Nuevo R.N.N.
-            </div>
-            <h1 class="h3 mb-0 text-gray-800">Entrenamiento de la Alternativa </h1>
+        <div class="col-lg-12 m-auto">
             <div class="card">
-        <form id="frm-principal-neurona" action="?c=principal&a=Guardar" method="post" class="card-body p-2" enctype="multipart/form-data" >
-        <?php echo isset($alert) ? $alert : ''; ?>
-            <input type="text" name="Neurona_Id" value="1 "/>
-             <input type="text" name="NeuronaNombre" />  
-                <div class="form-row">
-                <div class="form-group col-md-4">
-                      <label id="lb_entrada_1">Selecione una Categoria</label>
-                             <select class="custom-select selevt"  name="entrada_X" id="entrada_X" >
-                     <option   value="<?php echo $cat; ?>"><?php echo $catNombre; ?> </opcion>
+                <div class="card-header bg-primary text-white">
+                    Alternativa
+                </div>
+                <div class="card-body">
+                    <form id="frm-nuevo" action="?c=alternativa&a=Guardar" method="post" autocomplete="off" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="nombre">Nombre de la Alternativa</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                                </div>
+                                <input type="text" placeholder="Ingrese nombre" name="titulo" id="titulo" class="form-control">
+                            </div>
+                        </div>
 
-                         <?php foreach ($this->model->MenuTipoCategoria() as $Tipo): ?>
-                        <option  value="<?php echo $Tipo->Categoria_id; ?>">
-                            <?php echo $Tipo->Categoria_nombre; ?> <!-- Reemplaza "Nombre" con el nombre real de la columna que deseas mostrar en el select -->
-                        </option>       
-                        <?php endforeach; ?>
-                    </select> 
-                    </div> 
+                        <div class="form-group">
+                            <label for="categoria">Categoría de la Alternativa</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-list"></i></span>
+                                </div>
+                                <select class="custom-select" name="categoria" id="categoria" required>
+                                    <option value="0">Seleccionar</option>
+                                    <!-- Opciones generadas dinámicamente -->
+                                    <?php foreach ($this->model->MenuTipo() as $Tipo): ?>
+                                        <option  value="<?php echo $Tipo->Categoria_id; ?>">
+                                            <?php echo $Tipo->Categoria_nombre; ?> <!-- Reemplaza "Nombre" con el nombre real de la columna que deseas mostrar en el select -->
+                                        </option>       
+                                    <?php endforeach; ?>
+                                
+                                </select>
+                            </div>
+                        </div>
 
-                      <div class="form-group col-md-4">
-                    
+                        <div class="form-group">
+                            <label for="precio">Precio</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                </div>
+                                <input type="number" step="5" placeholder="Ingrese el Precio de la Alternativa" name="costo" id="costo" class="form-control" min="0" max="1000">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagenes">Cargar Imágenes del Alternativa</label>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
+                                <i class="fas fa-upload"></i> Cargar Imágenes
+                            </button>
+                        </div>
+
+                        <div class="modal" id="myModal1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Imágenes</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label for="img1">Imagen 1:</label>
+                                        <input type="file" class="form-control mb-2" id="img1" name="img1" required>
+                                        <label for="img2">Imagen 2:</label>
+                                        <input type="file" class="form-control mb-2" id="img2" name="img2" required>
+                                        <label for="img3">Imagen 3:</label>
+                                        <input type="file" class="form-control mb-2" id="img3" name="img3" required>
+                                        <label for="img4">Imagen 4:</label>
+                                        <input type="file" class="form-control mb-2" id="img4" name="img4" required>
+                                        <label for="img5">Imagen 5:</label>
+                                        <input type="file" class="form-control mb-2" id="img5" name="img5" required>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" id="saveChangesButtonImg">Guardar Cambios</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mapa">Cargar Ubicación Mapa</label>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                <i class="fas fa-map-marker-alt"></i> Cargar Ubicación Mapa
+                            </button>
+                        </div>
+
+                        <div class="modal" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Coordenadas</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label for="text1">Latitud:</label>
+                                        <input type="text" id="text1" class="form-control mb-2" required>
+                                        <label for="text2">Longitud:</label>
+                                        <input type="text" id="text2" class="form-control mb-2" required>
+                                        <label for="text3">Dirección:</label>
+                                        <input type="text" id="text3" class="form-control mb-2" required>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" id="saveChangesButton">Guardar Cambios</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                    <div id="map" style="height: 300px;"></div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ubicacion">Ubicación de la Alternativa</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                </div>
+                                <input type="text" placeholder="Ingrese ubicación de la alternativa" name="ubicacion" id="ubicacion" class="form-control" required>
+                                <input type="hidden"  name="latlong" id="latlong" class="form-control"> 
               
-                    <label id="lb_entrada_1">Alternativa Turistica</label>
-                    <select class="custom-select selevt" name="Id_Recomendacion" id="Id_Recomendacion" >
-                    <option   value="<?php echo $cat; ?>"><?php echo $tituloRef; ?> </opcion>
+                            </div>
+                        </div>
 
-                    <option  value="0">Seleccion</opcion>
-                   
-                    </select>                 
-                    </div>  
-                    
-                 
-                    <div class="form-group col-md-4">
-                
-                    <label for="inputEmail4">Cantidad de Personas</label>
-                    <select class="custom-select selevt"  name="entrada_1" id="entrada_1" >
-                    <option   value="0">Seleccion</opcion>
-                    <?php foreach ($this->model->MenuTipoGrupo() as $Tipo): ?>
-                        <option  value="<?php echo $Tipo->Entrada_Id; ?>">
-                            <?php echo $Tipo->Entrada_Nombre; ?> <!-- Reemplaza "Nombre" con el nombre real de la columna que deseas mostrar en el select -->
-                        </option>       
-                    <?php endforeach; ?>
-                    </select> 
-                    </div>
-                    </div>                
-                    <div class="form-row">
-                    <div class="form-group col-md-3">
-                    <label id="lb_entrada_1">Selecione el Sexo</label>
-                    <select class="custom-select selevt" name="entrada_2" id="entrada_2" >
-                    <option value="0">Seleccion</opcion>
-                    <option value="1">Masulino</option>
-                    <option value="2">Femenino</option>
-                     </select>                 
-                    </div>  
+                        <div class="form-group">
+                            <label for="descripcion">Descripción</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-info-circle"></i></span>
+                                </div>
+                                <input type="text" placeholder="Ingrese descripción" name="descripcion" id="descripcion" class="form-control" required>
+                            </div>
+                        </div>
 
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-toggle-on"></i></span>
+                                </div>
+                                <select name="estado" id="estado" class="custom-select">
+                                    <option value="1">Activo</option>
+                                    <option value="0">Inactivo</option>
+                                </select>
+                            </div>
+                        </div>
 
-                    <div class="form-group col-md-3">
-                    <label id="lb_entrada_3">Selecione el Horario</label>
-                    <select class="custom-select selevt" name="entrada_3" id="entrada_3" >
-                    <option value="0">Seleccion</opcion>
-                    <option value="1">Mañana</option>
-                    <option value="2">Tarde</option>
-                    <option value="3">Noche</option>
-                    </select>                 
-                    </div>  
-
-                    <div class="form-group col-md-3">
-                    <label id="lb_entrada_1">Selecione el Edad</label>
-                    <select class="custom-select selevt" name="entrada_4" id="entrada_4" >
-                    <option  value="0">Seleccion </opcion>
-                    <option value="1">18 - 21</option>
-                    <option value="2">22 - 24</option>
-                    <option value="3">25 - 29</option>
-                    <option value="4">30 - 34</option>
-                    <option value="5">35 - 39</option>
-                    <option value="6">40 - 44</option>
-                    <option value="7">45 - 49</option>
-                    <option value="8">50 - 69</option>
-                    <option value="9">70 - 90</option>
-                    </select>                 
-                    </div>        
-                
-
-                    <div class="form-group col-md-3">
-                    <label id="lb_entrada_1">Selecione el Costo</label>
-                    <select class="custom-select selevt" name="entrada_5" id="entrada_5" >
-                    <option value="0">Seleccion </opcion>
-                    <option value="1">Muy Económico</option>
-                    <option value="2">Económico</option>
-                    <option value="3">Moderado</option>
-                    <option value="4">Alto</option>
-                    <option value="5">Muy Alto</option>
-         
-           
-                    </select>                 
-                    </div> 
-
-                     </div>
-          
-          
-
-            <div class="text-center">
-                <button class="btn btn-success">Guardar</button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar Alternativa</button>
+                        <a href="?c=principal" class="btn btn-danger"><i class="fas fa-arrow-left"></i> Regresar</a>
+                    </form>
+                </div>
             </div>
+        </div>
+    </div>
+</div>
+ <!-- Load Leaflet from CDN -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
 
-         </form>
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.5.0/dist/esri-leaflet.js"
+    integrity="sha512-ucw7Grpc+iEQZa711gcjgMBnmd9qju1CICsRaryvX7HJklK0pGl/prxKvtHwpgm5ZHdvAil7YPxI1oWPOWK3UQ=="
+    crossorigin=""></script>
+
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.3.3/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-HrFUyCEtIpxZloTgEKKMq4RFYhxjJkCiF5sDxuAokklOeZ68U2NPfh4MFtyIVWlsKtVbK5GD2/JzFyAfvT5ejA=="
+    crossorigin=""></script>
+
 
 
 <script>
-                var valorSeleccionadoX = $("#entrada_X1").val();
+    document.getElementById('frm-nuevo').addEventListener('submit', function(event) {
+            event.preventDefault(); // Detener el envío del formulario tradicional
 
-                console.log("enviado:",valorSeleccionadoX);
+            var formData = new FormData(this);
+
+            fetch('?c=alternativa&a=Guardar', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Éxito',
+                        text: data.message
+                    }).then(() => {
+                        window.location.href = 'index.php?c=alternativa&a=NuevoIN';
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: data.message
+                    });
+                }
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Hubo un problema al procesar la solicitud.'
+                });
+            });
+        });
+    $(document).ready(function(){
+            
+        var map = L.map('map').setView([-16.489689,-68.119293], 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var gcs = L.esri.Geocoding.geocodeService();
+        var currentMarker;
+
+        map.on('click', (e)=>{
+        var lat = Number(e.latlng.lat.toFixed(6));
+        var lng = Number(e.latlng.lng.toFixed(6));
+        if (currentMarker) {
+            map.removeLayer(currentMarker);
+        }
+        currentMarker = L.marker(e.latlng).addTo(map);
+        
+        gcs.reverse().latlng(e.latlng).run((err, res)=>{
+            if(err) return;
+          //  alert(res.latlng);
+
+         //   document.getElementById("text1").value = lat;
+            document.getElementById("text2").value = lng;
+
+       
+            let latLngStr = e.latlng;
+
+          //  let latLngStr = "LatLng(-16.485331, -68.119304)";
+            document.getElementById("text1").value = lat;
+            document.getElementById("latlong").value = lat + "," + lng ;
+          //  currentMarker = L.marker(res.latlng).addTo(map).bindPopup(res.address.Match_addr).openPopup();
+          //  currentMarker.bindPopup(res.address.Match_addr).openPopup();
+          var popupContent = "";
+          var inputContent = "";
+            if (res.address.Match_addr) {
+                popupContent += res.address.Match_addr + "<br>";
+             //   popupContentInfo += res.address.Match_addr ;
+            }
+            if (res.address.Street) {
+                popupContent += "Calle: " + res.address.Street + "<br>";
+                inputContent += "Calle: " + res.address.Street + ", ";
+  
+            }
+            if (res.address.Neighborhood) {
+                popupContent += "Barrio: " + res.address.Neighborhood + "<br>";
+           //    inputContent += "Barrio: " + res.address.Neighborhood + ", ";
+       }
+            // ... (puedes agregar más detalles aquí)
+
+            // Mostrar la información en el popup
+            currentMarker.bindPopup(popupContent).openPopup();
+
+            document.getElementById("text3").value = res.address.Match_addr;
+
+            });
+        });
+        // Objeto para mantener el registro de los archivos seleccionados
+        var archivosSeleccionados = {};
+        function esExtensionValida(nombreArchivo) {
+            // Define las extensiones de archivo permitidas
+            var extensionesPermitidas = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+            
+            // Comprueba si la extensión del archivo actual está permitida
+            return extensionesPermitidas.test(nombreArchivo);
+        }
 
 
-                var valorCodificado = encodeURIComponent(valorSeleccionadoX);
-                $.ajax({
-                                url: '?c=principal&a=NuevoPreparadoNombre&X=' + valorCodificado,
-                                method: 'POST',  
-                                dataType: 'json',         
-                                success: function (data) {
-                                  
-                                    console.log('Respuesta del servidor:', data);
-                                   
-                               
-                                },
-                                error: function (xhr, status, error) {
-                                console.log('Error al obtener los datos:');
-                                console.log('XHR:', xhr);
-                                console.log('Status:', status);
-                                console.log('Error:', error);
-                                    }
-                            });
+                
+        function actualizarRegistroYUI(inputElement, infoElementId) {
+            var files = $(inputElement)[0].files;
+            var fileInfo = "";
 
+            if (files.length > 0) {
+                var archivo = files[0].name;
+
+                // Verificar si el archivo tiene una extensión de imagen válida
+                if (!esExtensionValida(archivo)) {
+                    fileInfo = "Formato no permitido. Seleccione un archivo de imagen (.jpg, .jpeg, .png, .gif).";
+                    $(inputElement).val(''); // Limpiar el input file
+                } else if (Object.values(archivosSeleccionados).includes(archivo)) {
+                    // Comprobar si el archivo ya ha sido seleccionado en otro input
+                    fileInfo = "Este archivo ya ha sido seleccionado.";
+                    $(inputElement).val(''); // Deseleccionar el archivo actual
+                } else {
+                    // Actualizar el registro con el nuevo archivo
+                    var inputId = $(inputElement).attr('id');
+                    archivosSeleccionados[inputId] = archivo;
+                    fileInfo = `Archivo seleccionado: ${archivo}`;
+                }
+            } else {
+                fileInfo = "No se ha seleccionado ningún archivo.";
+            }
+
+            $('#' + infoElementId).html(fileInfo); // Actualizar la interfaz de usuario
+        }
+
+        // Manejadores de eventos para los cambios de archivos
+        $('#img1').on('change', function() { actualizarRegistroYUI(this, 'file-info1'); });
+        $('#img2').on('change', function() { actualizarRegistroYUI(this, 'file-info2'); });
+        $('#img3').on('change', function() { actualizarRegistroYUI(this, 'file-info3'); });
+        $('#img4').on('change', function() { actualizarRegistroYUI(this, 'file-info4'); });
+        $('#img5').on('change', function() { actualizarRegistroYUI(this, 'file-info5'); });
+
+
+
+        
+
+
+        $('#myModal').on('shown.bs.modal', function () {
+                map.invalidateSize();
+            });
+
+
+        $('#saveChangesButton').on('click', function() {
+            var txt = document.getElementById("text3").value;
+            document.getElementById("ubicacion").value = txt;
+
+            if (txt && txt.trim() !== "") {
+                $('#myModal').modal('hide');
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+            }
+        });
+        // Obtiene el botón que abre el modal
+        var modal = document.getElementById("myModal1");
+
+        // Obtiene el botón que abre el modal
+
+
+        $('#saveChangesButtonImg').on('click', function(e) {
+            e.preventDefault(); // Esto evita que el botón realice su acción por defecto.
+            // Aquí iría el código para manejar los cambios, como validar y guardar los datos.
+            
+            // Para cerrar el modal manualmente si todo está correcto:
+             $('#myModal1').modal('hide');
+             $('.modal-backdrop').remove();
+             $('body').removeClass('modal-open'); // Esto devuelve el scroll al body si se había quitado.
+        });
+
+
+        var modal = document.getElementById("myModal");
+
+            // Obtiene el botón que abre el modal
+            var btn = document.getElementById("openModalButton");
+
+            // Obtiene el elemento <span> que cierra el modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // Cuando el usuario hace clic en el botón, abre el modal 
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            // Cuando el usuario hace clic en <span> (x), cierra el modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // Cuando el usuario hace clic en cualquier lugar fuera del modal, lo cierra
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+        // Función para guardar los cambios
+        document.getElementById("saveChangesButton").onclick = function() {
+            var text1Value = document.getElementById("text1").value;
+            var text2Value = document.getElementById("text2").value;
+
+            // Aquí puedes agregar el código para modificar el contenido en tu archivo original.
+            console.log("Text1: " + text1Value + ", Text2: " + text2Value);
+        }
+
+        $("#frm-nuevo").submit(function(){
+            return $(this).validate();
+        });
+    })
 </script>
