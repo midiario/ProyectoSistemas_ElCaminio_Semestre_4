@@ -47,18 +47,14 @@
 
     <?php foreach($this->model->MenuLista() as $r): ?>
         <tr>
-            <td><?php echo $r->Neurona_Id; ?></td>
-            <td><?php echo $r->Neurona_Nombre; ?></td>
-            <td><?php echo $r->Nombre_Recomendacion; ?></td>
-            <td><?php echo $r->Cantidad_Personas; ?></td>
-            <td><?php echo $r->Horario; ?></td>
-            <td><?php echo $r->Edad; ?></td>
-
-            <td><?php echo $r->Costo; ?></td>
+            <td><?php echo $r->id_pedido; ?></td>
+            <td><?php echo $r->fk_cliente; ?></td>
+            <td><?php echo $r->nit_ci; ?></td>
+            <td><?php echo $r->estado; ?></td>
         
 
             <td>
-                <?php if ($r->Entrenada == 1) { ?>
+                <?php if ($r->estado == 1) { ?>
                     <img src="img/check.png" alt="Ir Atrás" style="height: 40px; width: 40px;"></img>
                 <?php } else { ?>
                     <img src="img/cancel.png" alt="Ir Atrás" style="height: 40px; width: 40px;" > </img>
@@ -72,10 +68,10 @@
             </td>
 
             <td>
-                <a href="?c=principal&a=Crud&Neurona_Id=<?php echo $r->Neurona_Id; ?>"class="btn btn-success"><i class='fas fa-edit'></i></a>
-                <a href="?c=principal&a=Crud_Aux&Neurona_Id=<?php echo $r->Neurona_Id; ?>"class="btn btn-primary"><i class='fas fa-brain'>..</i></a>         
+                <a href="?c=principal&a=Crud&Neurona_Id=<?php echo $r->id_pedido; ?>"class="btn btn-success"><i class='fas fa-edit'></i></a>
+      
 
-                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=producto&a=Eliminar&idProducto=<?php echo $r->Neurona_Id; ?>" class="btn btn-danger"><i class='fas fa-trash-alt'></i></a>
+                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=producto&a=Eliminar&idProducto=<?php echo $r->id_pedido; ?>" class="btn btn-danger"><i class='fas fa-trash-alt'></i></a>
             </td>
         </tr>
     <?php endforeach; ?>
