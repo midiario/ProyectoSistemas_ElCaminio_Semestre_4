@@ -68,7 +68,7 @@ input:checked + .slider:before {
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-6">
 		<h1 class="h3 mb-0 text-gray-800">Productos</h1>
-		<a href="?c=productos&a=Nuevo" class="btn btn-primary">Nuevo</a>
+		<a href="?c=categorias&a=Nuevo" class="btn btn-primary">Nuevo</a>
 	</div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 

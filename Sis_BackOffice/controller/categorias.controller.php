@@ -20,6 +20,14 @@ class CategoriasController{
         }
     }
 
+    public function Nuevo(){
+        $pvd = new categorias();
+      
+        require_once 'view/pago/header.php';
+        require_once 'view/categorias/nuevo.php';
+        require_once 'view/footerx.php';
+    }
+
     // Método privado para evitar el almacenamiento en caché
     private function evitarCache(){
         // Evitar que el navegador almacene en caché la página
