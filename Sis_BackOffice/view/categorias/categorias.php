@@ -81,16 +81,13 @@ input:checked + .slider:before {
 					<thead class="thead-dark">
 
                     <tr>
-                        <th >Id Producto</th>
+                        <th >Id Categoria</th>
                         <th >Categoria</th>
-                        <th >Nombre Producto</th>
-                        <th >Detalle Producto</th>
-                        <th >Imangen 1 - Producto</th>
-                        <th >Imangen 2 - Producto</th>
-                        <th >Imangen 3 - Producto</th>
+                        <th >Nombre Categoria</th>
+                        <th >Detalle Categoria</th>
+                        <th >Creacion - Categoria</th>
                         <th >Estado</th>
-                        <th >Fecha</th>
-                  
+                           
        
                         <th >Acciones</th>
       
@@ -100,12 +97,13 @@ input:checked + .slider:before {
                 <tbody>
         <?php foreach($this->model->MenuLista() as $r): ?>
         <tr>
-            <td><?php echo $r->id_producto; ?></td>
-            <td><?php echo $r->fk_categoria; ?></td>
-            <td><?php echo $r->nombre_producto_pedido; ?></td>
+            <td><?php echo $r->id_categoria_producto_pedido; ?></td>
+            <td><?php echo $r->nombre_categoria_producto_pedido; ?></td>
+            <td><?php echo $r->detalle_categoria_producto_pedido; ?></td>
+            <td><?php echo $r->fecha_creacion; ?></td>
             <td>
 
-            <?php $estado = $r->ESTADO;
+            <?php $estado = $r->estado;
 
             $nombre = $estado ? 'Activo' : 'Inactivo';
             $color = $estado ? 'success' : 'danger';
