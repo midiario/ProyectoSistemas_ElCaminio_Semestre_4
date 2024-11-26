@@ -4,17 +4,17 @@
 
 
     <div class="container-fluid">
-    <h1 class="page-header text-center">Registro Nueva Categorias</h1>
+    <h1 class="page-header text-center">Registro Nueva Alternativa Turística</h1>
     <div class="row">
         <div class="col-lg-12 m-auto">
             <div class="card">
                 <div class="card-header bg-primary text-white">
-                   Categorias
+                    Alternativa
                 </div>
                 <div class="card-body">
-                    <form id="frm-nuevo" action="?c=categorias&a=Guardar" method="post" autocomplete="off" enctype="multipart/form-data">
+                    <form id="frm-nuevo" action="?c=alternativa&a=Guardar" method="post" autocomplete="off" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="nombre">Nombre de la Categorias</label>
+                            <label for="nombre">Nombre de la Alternativa</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-tag"></i></span>
