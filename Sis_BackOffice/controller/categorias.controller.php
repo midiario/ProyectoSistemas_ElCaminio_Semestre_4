@@ -4,12 +4,12 @@ session_start();
 
 require_once 'model/productos.php';
 
-class ProductosController{
+class CategoriasController{
 
     private $model;
 
     public function __CONSTRUCT(){
-        $this->model = new productos();
+        $this->model = new categorias();
     }
 
         // Método privado para verificar la sesión
@@ -36,7 +36,7 @@ class ProductosController{
 
     //Llamado plantilla productos
     public function Index(){
-        $pvd = new productos();
+        $pvd = new categorias();
        $this->verificarSesion(); // Verificar si el usuario está autenticado
        $this->evitarCache();     // Evitar el almacenamiento en caché
 
@@ -45,7 +45,7 @@ class ProductosController{
        require_once 'view/footerx.php';
     } 
     public function NuevoEntrenamiento(){
-        $pvd = new productos();
+        $pvd = new categorias();
 
         require_once 'view/pago/header.php';
         require_once 'view/productos/productos-entrenamiento.php';
@@ -53,7 +53,7 @@ class ProductosController{
     }
 
     public function Entrenar(){
-        $pvd = new productos();
+        $pvd = new categorias();
 
         require_once 'view/pago/header.php';
         require_once 'view/productos/entrenar.php';
