@@ -163,43 +163,10 @@ class categorias
   }
 
 
-  public function Registrar(alternativa $data)
-	{
-		try
-		{
-	
-		
-				$sql = "INSERT INTO recomendacion 
-				(Recomendacion_titulo,
-				Recomendacion_ubicacion_tour,
-				Recomendacion_categoria,
-				Recomendacion_costo,
-				Recomendacion_descripcion,
-				Recomendacion_latlong,
- 				Recomendacion_estado)
-		        VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-		$this->pdo->prepare($sql)
-		     ->execute(
-				   array(
-					          $data->titulo,
-                    $data->ubicacion,
-                    $data->categoria,
-                    $entrada_2,
-                    $data->descripcion,
-                    $data->latlong,
-                    $data->estado
 
-                )
-			);
-			$_SESSION['ultimoIdInsertado'] = $this->pdo->lastInsertId();
-		} catch (Exception $e)
-		{
-			die($e->getMessage());
-		}
-	}
 
-  public function Registrar($data)
+  public function Registrar($categorias $data)
   {
     try
     {
