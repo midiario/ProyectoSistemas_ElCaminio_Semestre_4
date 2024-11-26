@@ -23,25 +23,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="categoria">Categoría de la Alternativa</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-list"></i></span>
-                                </div>
-                                <select class="custom-select" name="categoria" id="categoria" required>
-                                    <option value="0">Seleccionar</option>
-                                    <!-- Opciones generadas dinámicamente -->
-                                    <?php foreach ($this->model->MenuTipo() as $Tipo): ?>
-                                        <option  value="<?php echo $Tipo->Categoria_id; ?>">
-                                            <?php echo $Tipo->Categoria_nombre; ?> <!-- Reemplaza "Nombre" con el nombre real de la columna que deseas mostrar en el select -->
-                                        </option>       
-                                    <?php endforeach; ?>
-                                
-                                </select>
-                            </div>
-                        </div>
-
+                      
                         <div class="form-group">
                             <label for="precio">Precio</label>
                             <div class="input-group">
