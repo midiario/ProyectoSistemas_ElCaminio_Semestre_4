@@ -4,7 +4,7 @@
 
 
     <div class="container-fluid">
-    <h1 class="page-header text-center">Registro Nueva Alternativa Turísticassssssssssssssssss</h1>
+    <h1 class="page-header text-center">Registro Nueva Categoria</h1>
     <div class="row">
         <div class="col-lg-12 m-auto">
             <div class="card">
