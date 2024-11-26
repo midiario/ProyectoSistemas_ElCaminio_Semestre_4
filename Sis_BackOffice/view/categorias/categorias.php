@@ -1,6 +1,6 @@
  <!-- Begin Page Content -->
 
-<style>
+ <style>
 
 .switch {
   position: relative;
@@ -68,7 +68,7 @@ input:checked + .slider:before {
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-6">
 		<h1 class="h3 mb-0 text-gray-800">Productos</h1>
-		<a href="?c=categorias&a=Nuevo" class="btn btn-primary">Nuevo</a>
+		<a href="?c=productos&a=Nuevo" class="btn btn-primary">Nuevo</a>
 	</div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
@@ -81,13 +81,16 @@ input:checked + .slider:before {
 					<thead class="thead-dark">
 
                     <tr>
-                        <th >Id Categoria</th>
+                        <th >Id Producto</th>
                         <th >Categoria</th>
-                        <th >Nombre Categoria</th>
-                        <th >Detalle Categoria</th>
-                        <th >Creacion - Categoria</th>
+                        <th >Nombre Producto</th>
+                        <th >Detalle Producto</th>
+                        <th >Imangen 1 - Producto</th>
+                        <th >Imangen 2 - Producto</th>
+                        <th >Imangen 3 - Producto</th>
                         <th >Estado</th>
-                           
+                        <th >Fecha</th>
+                  
        
                         <th >Acciones</th>
       
@@ -97,13 +100,12 @@ input:checked + .slider:before {
                 <tbody>
         <?php foreach($this->model->MenuLista() as $r): ?>
         <tr>
-            <td><?php echo $r->id_categoria_producto_pedido; ?></td>
-            <td><?php echo $r->nombre_categoria_producto_pedido; ?></td>
-            <td><?php echo $r->detalle_categoria_producto_pedido; ?></td>
-            <td><?php echo $r->fecha_creacion; ?></td>
+            <td><?php echo $r->id_producto; ?></td>
+            <td><?php echo $r->fk_categoria; ?></td>
+            <td><?php echo $r->nombre_producto_pedido; ?></td>
             <td>
 
-            <?php $estado = $r->estado;
+            <?php $estado = $r->ESTADO;
 
             $nombre = $estado ? 'Activo' : 'Inactivo';
             $color = $estado ? 'success' : 'danger';
