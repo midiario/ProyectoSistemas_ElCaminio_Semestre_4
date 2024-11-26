@@ -135,23 +135,21 @@ class CategoriasController{
     public function Guardar(){
         // var_dump($_POST);die;
         //Captura de los datos del formulario (vista).
-        $data = [
-            'nombre'        => trim($_POST['nombre']),
-            'descripcion'   => trim($_POST['descripcion']),
-            'estado'        => trim($_POST['estado'])
-        ];
+
+        $pvd = new productos();
+
+        $pvd->nombre = $_REQUEST['nombre'];
+        $pvd->detalle = $_REQUEST['detalle'];
+        $pvd->estado = $_REQUEST['estado'];
 
         //Registro al modelo categorias.
-        $respuesta = $this->model->Registrar($data);
-        
-        if($respuesta){
-            header('Location: index.php?c=categorias&a=Listar'); // redirecciona a la pagina de listar
-        }else{
-            // mensaje de error 
-
-        }
+       // $respuesta = $this->model->Registrar($data);
+        $this->model->Registrar($pvd);
+      
                
     }
+
+    
 
 
     public function Editar(){
