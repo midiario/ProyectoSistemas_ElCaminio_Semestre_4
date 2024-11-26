@@ -141,7 +141,7 @@
       <img src="assets/img/CAMINO.jpg">
     </div>
     <div class="text-center mt-4 name">
-       Imprenta el Camino Administrador ...
+       Imprenta el Camino Administrador X
     </div>
     </br>
     <form id="frm-login" action="?c=login&a=Login" method="post" enctype="multipart/form-data">
