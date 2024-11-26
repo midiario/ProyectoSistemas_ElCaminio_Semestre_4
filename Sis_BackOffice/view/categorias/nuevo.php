@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <form id="frm-nuevo" action="?c=alternativa&a=Guardar" method="post" autocomplete="off" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="nombre">Nombre de la Alternativa</label>
+                            <label for="nombre">Nombre de la Categoria</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-tag"></i></span>
@@ -20,20 +20,8 @@
                             </div>
                         </div>
 
-                      
                         <div class="form-group">
-                            <label for="precio">Precio</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                                </div>
-                                <input type="number" step="5" placeholder="Ingrese el Precio de la Alternativa" name="costo" id="costo" class="form-control" min="0" max="1000">
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="descripcion">Descripción</label>
+                            <label for="descripcion">Detalle de la Categoria</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-info-circle"></i></span>
@@ -55,7 +43,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar Alternativa</button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
                         <a href="?c=principal" class="btn btn-danger"><i class="fas fa-arrow-left"></i> Regresar</a>
                     </form>
                 </div>
