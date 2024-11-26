@@ -20,6 +20,14 @@ class CategoriasController{
         }
     }
 
+    public function Nuevo(){
+        $pvd = new categorias();
+      
+        require_once 'view/pago/header.php';
+        require_once 'view/categorias/nuevo.php';
+        require_once 'view/footerx.php';
+    }
+
     // Método privado para evitar el almacenamiento en caché
     private function evitarCache(){
         // Evitar que el navegador almacene en caché la página
@@ -127,9 +135,11 @@ class CategoriasController{
     public function Guardar(){
         // var_dump($_POST);die;
         //Captura de los datos del formulario (vista).
+
+        
         $data = [
             'nombre'        => trim($_POST['nombre']),
-            'descripcion'   => trim($_POST['descripcion']),
+            'detalle'   => trim($_POST['detalle']),
             'estado'        => trim($_POST['estado'])
         ];
 

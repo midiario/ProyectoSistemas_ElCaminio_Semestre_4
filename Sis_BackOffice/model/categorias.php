@@ -36,87 +36,9 @@ class categorias
     }
   }
 
-  public function MenuTipo()
-  {
-    try
-    {
-      $result = array();
-      $stm = $this->pdo->prepare("SELECT * FROM categoria");
-      $stm->execute();
-      return $stm->fetchAll(PDO::FETCH_OBJ);
-    } catch (Exception $e)
-    {
-      die($e->getMessage());
-    }
-  }
 
-  public function Listar()
-  {
-    try
-    {
-      $result = array();
-
-      $stm = $this->pdo->prepare("SELECT 
-                                    Categoria_id,
-                                    Categoria_nombre,
-                                    Categoria_descripcion,
-                                    Categoria_estado,
-                                    CASE 
-                                      WHEN Categoria_estado = 1 THEN 'ACTIVO'
-                                      WHEN Categoria_estado <> 1 THEN 'INACTIVO'
-                                    END estado
-                                  FROM categoria
-                                  WHERE Categoria_estado <> 0
-                                  ORDER BY Categoria_id DESC");
-      $stm->execute();
-
-      return $stm->fetchAll(PDO::FETCH_OBJ);
-    }
-    catch(Exception $e)
-    {
-      die($e->getMessage());
-    }
-  }
-  public function ListarEntrenamiento()
-  {
-    try
-    {
-      $result = array();
-
-      $stm = $this->pdo->prepare("SELECT * FROM pesos");
-      $stm->execute();
-
-      return $stm->fetchAll(PDO::FETCH_OBJ);
-    }
-    catch(Exception $e)
-    {
-      die($e->getMessage());
-    }
-  }
   
-
-  public function Obtener($id)
-  {
-    try
-    {
-      $stm = $this->pdo->prepare("SELECT 
-                                    Categoria_id,
-                                    Categoria_nombre,
-                                    Categoria_descripcion,
-                                    Categoria_estado,
-                                    CASE 
-                                      WHEN Categoria_estado = 1 THEN 'ACTIVO'
-                                      WHEN Categoria_estado <> 1 THEN 'INACTIVO'
-                                    END estado
-                                  FROM categoria
-                                  WHERE Categoria_id = ?");
-      $stm->execute(array($id));
-      return $stm->fetch(PDO::FETCH_OBJ);
-    } catch (Exception $e)
-    {
-      die($e->getMessage());
-    }
-  }
+  
 
   public function Eliminar($id)
   { 
@@ -124,7 +46,7 @@ class categorias
     try
     {
       $stm = $this->pdo
-        ->prepare("UPDATE categoria SET Categoria_estado = 0 WHERE Categoria_id= ?");
+        ->prepare("UPDATE categoria_producto_pedido SET Categoria_estado = 0 WHERE Categoria_id= ?");
 
       $stm->execute(array($id));
       return true;
