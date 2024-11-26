@@ -139,17 +139,17 @@ class categorias
   { 
     try
     {
-      $sql = "UPDATE categoria SET
-      Categoria_nombre        = ?,
-      Categoria_descripcion   = ?, 
-      Categoria_estado        = ?
-      WHERE Categoria_id      = ?";
+      $sql = "UPDATE categoria_producto_pedido SET
+      nombre_categoria_producto_pedido        = ?,
+      detalle_categoria_producto_pedido   = ?, 
+      estado        = ?
+      WHERE id_categoria_producto_pedido      = ?";
 
       $this->pdo->prepare($sql)
            ->execute(
             array( 
             $data['nombre'],
-            $data['descripcion'],
+            $data['detalle'],
             $data['estado'],
             $id
           )
@@ -167,17 +167,17 @@ class categorias
     try
     {
           
-          $sql = "INSERT INTO categoria 
-          (Categoria_nombre,
-          Categoria_descripcion,
-          Categoria_estado)
+          $sql = "INSERT INTO categoria_producto_pedido 
+          (nombre_categoria_producto_pedido,
+          detalle_categoria_producto_pedido,
+          estado)
               VALUES (?, ?, ?)";
 
       $this->pdo->prepare($sql)
            ->execute(
           array(
             $data['nombre'],
-            $data['descripcion'],
+            $data['detalle'],
             $data['estado']
           )
 

@@ -9,14 +9,14 @@
                     Alternativa
                 </div>
                 <div class="card-body">
-                    <form id="frm-nuevo" action="?c=alternativa&a=Guardar" method="post" autocomplete="off" enctype="multipart/form-data">
+                    <form id="frm-nuevo" action="?c=categorias&a=Guardar" method="post" autocomplete="off" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="nombre">Nombre de la Categoria</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-tag"></i></span>
                                 </div>
-                                <input type="text" placeholder="Ingrese nombre" name="titulo" id="titulo" class="form-control">
+                                <input type="text" placeholder="Ingrese nombre" name="nombre" id="nombre" class="form-control">
                             </div>
                         </div>
 
@@ -26,7 +26,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-info-circle"></i></span>
                                 </div>
-                                <input type="text" placeholder="Ingrese descripción" name="descripcion" id="descripcion" class="form-control" required>
+                                <input type="text" placeholder="Ingrese descripción" name="detalle" id="detalle" class="form-control" required>
                             </div>
                         </div>
 
